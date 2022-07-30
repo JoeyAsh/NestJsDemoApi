@@ -1,0 +1,8 @@
+{
+    "name": "@demo/api",
+    "version": "1.0.0",
+    "main": "index.ts",
+    "repository": "https://github.com/JoeyAsh/NestJsDemoApi",
+    "author": "Johannes Aschenbrenner - JoeyAsh",
+    "license": "MIT"
+}
