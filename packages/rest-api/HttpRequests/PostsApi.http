@@ -1,0 +1,36 @@
+### Get posts
+GET http://localhost:5000/posts
+Accept: application/json
+
+### Get a post
+GET http://localhost:5000/posts/1
+Accept: application/json
+
+### Create a post
+POST http://localhost:5000/posts
+Content-Type: application/json
+
+{
+  "date": "2021-08-16",
+  "title": "Intro to NestJS",
+  "body": "This blog post is about NestJS",
+  "category": "NestJS"
+}
+
+
+### Update a post
+PUT http://localhost:5000/posts/1
+Content-Type: application/json
+
+{
+  "date": "2021-08-16",
+  "title": "Intro to TypeScript",
+  "body": "An intro to TypeScript",
+  "category": "TypeScript"
+}
+
+### Delete a post
+DELETE http://localhost:5000/posts/1
+Accept: application/json
+
+
