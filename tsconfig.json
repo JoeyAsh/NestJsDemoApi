@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es6",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "noErrorTruncation": false,
+    "paths": {
+      "@nerdz/web-client": [
+        "./packages/web-client/src"
+      ],
+      "test/*": [
+        "./test/*"
+      ]
+    },
+    // Otherwise we get react-native typings which conflict with dom.lib.
+    "types": [
+      "node",
+      "react"
+    ]
+  },
+  "exclude": [
+    "**/.*/",
+    "**/build",
+    "**/node_modules",
+    "docs/export"
+  ]
+}
