@@ -1,36 +1,35 @@
 ### Get posts
-GET http://localhost:5000/posts
+GET http://localhost:5000/api/posts
 Accept: application/json
 
 ### Get a post
-GET http://localhost:5000/posts/1
+GET http://localhost:5000/api/posts/94ecd162-e2de-460a-8cc9-c15fec9c5b57
 Accept: application/json
 
 ### Create a post
-POST http://localhost:5000/posts
+POST http://localhost:5000/api/posts
 Content-Type: application/json
 
 {
-  "date": "2021-08-16",
-  "title": "Intro to NestJS",
-  "body": "This blog post is about NestJS",
-  "category": "NestJS"
+  "createdOn": "2022-07-30T22:52:29.914Z",
+  "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed",
+  "views": 253,
+  "shares": 12,
+  "likes": 142
 }
 
 
 ### Update a post
-PUT http://localhost:5000/posts/1
+PUT http://localhost:5000/api/posts/94ecd162-e2de-460a-8cc9-c15fec9c5b57
 Content-Type: application/json
 
 {
-  "date": "2021-08-16",
-  "title": "Intro to TypeScript",
-  "body": "An intro to TypeScript",
-  "category": "TypeScript"
+  "updatedOn": "2022-07-31T02:15:29.914Z",
+  "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed"
 }
 
 ### Delete a post
-DELETE http://localhost:5000/posts/1
+DELETE http://localhost:5000/api/posts/94ecd162-e2de-460a-8cc9-c15fec9c5b57
 Accept: application/json
 
 
