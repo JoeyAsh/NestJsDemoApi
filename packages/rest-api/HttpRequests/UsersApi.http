@@ -1,0 +1,11 @@
+### Create a post
+POST http://localhost:5001/api/users
+Content-Type: application/json
+
+{
+  "id": "9fb8e438-96a7-4336-b8e4-36ff81f0dcce",
+  "posts": [],
+  "firstName": "Johannes",
+  "lastName": "Aschenbrenner",
+  "birthDate": "2022-07-30T22:52:29.914Z"
+}

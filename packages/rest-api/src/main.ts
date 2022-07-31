@@ -1,21 +1,8 @@
-import {NestFactory} from '@nestjs/core';
-import {AppModule} from './app.module';
-import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger';
+import {dataApiBootstrap} from '../apps/data-api/src/main';
+import {userApiBootstrap} from '../apps/user-api/src/main';
 
 async function bootstrap() {
-    const app = await NestFactory.create(AppModule);
-    app.setGlobalPrefix('api');
-
-    const config = new DocumentBuilder()
-        .setTitle('Data API')
-        .setDescription('Data API')
-        .setVersion('1.0')
-        .build();
-
-    const document = SwaggerModule.createDocument(app, config);
-    SwaggerModule.setup('swagger', app, document);
-
-    // await app.listen(5000);
-    // console.log(`Application is running on: ${await app.getUrl()}`);
+    await dataApiBootstrap();
+    await userApiBootstrap();
 }
 void bootstrap();

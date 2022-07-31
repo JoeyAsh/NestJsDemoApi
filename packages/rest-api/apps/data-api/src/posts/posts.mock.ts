@@ -1,5 +1,6 @@
 import {PostEntity} from './entities/post.entity';
 import * as crypto from 'crypto';
+import {userMock} from '../../../user-api/src/users/users.mock';
 
 const generateEarlierDate = (): Date => {
     return new Date(Date.now() - (Math.random() * (9000 - 1000) + 1000));
@@ -18,6 +19,7 @@ export const postMock: PostEntity = {
     views: 253,
     shares: 12,
     likes: 142,
+    user: userMock,
 };
 
 export const postArrayMock: Array<PostEntity> = [
@@ -34,6 +36,7 @@ export const postArrayMock: Array<PostEntity> = [
         views: 253,
         shares: 12,
         likes: 142,
+        user: userMock,
     },
     {
         id: crypto.randomUUID(),
@@ -48,6 +51,7 @@ export const postArrayMock: Array<PostEntity> = [
         views: 253,
         shares: 12,
         likes: 142,
+        user: userMock,
     },
     {
         id: crypto.randomUUID(),
@@ -62,6 +66,7 @@ export const postArrayMock: Array<PostEntity> = [
         views: 253,
         shares: 12,
         likes: 142,
+        user: userMock,
     },
     {
         id: crypto.randomUUID(),
@@ -76,6 +81,7 @@ export const postArrayMock: Array<PostEntity> = [
         views: 253,
         shares: 12,
         likes: 142,
+        user: userMock,
     },
     {
         id: crypto.randomUUID(),
@@ -90,5 +96,6 @@ export const postArrayMock: Array<PostEntity> = [
         views: 253,
         shares: 12,
         likes: 142,
+        user: userMock,
     },
 ];

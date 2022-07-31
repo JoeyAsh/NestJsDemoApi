@@ -1,4 +1,11 @@
-import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
+import {
+    Column,
+    Entity,
+    JoinColumn,
+    ManyToOne,
+    PrimaryGeneratedColumn,
+} from 'typeorm';
+import {UserEntity} from '../../../../user-api/src/users/entities/user.entity';
 
 @Entity('Post')
 export class PostEntity {
@@ -25,4 +32,8 @@ export class PostEntity {
 
     @Column({nullable: true})
     mediaUrl?: string;
+
+    @ManyToOne(() => UserEntity, (user) => user.posts)
+    @JoinColumn()
+    user: UserEntity;
 }

@@ -5,6 +5,7 @@ import {UpdatePostDto} from './dto/update-post.dto';
 import * as crypto from 'crypto';
 import {Repository} from 'typeorm';
 import {InjectRepository} from '@nestjs/typeorm';
+import {UsersService} from '../../../user-api/src/users/users.service';
 
 @Injectable()
 export class PostsService {
@@ -13,11 +14,16 @@ export class PostsService {
     constructor(
         @InjectRepository(PostEntity)
         private readonly postRepository: Repository<PostEntity>,
+        private readonly usersService: UsersService,
     ) {}
 
     public findAll(): Promise<Array<PostEntity>> {
         this.logger.log('Returning all posts.');
-        return this.postRepository.find();
+        return this.postRepository.find({
+            relations: {
+                user: true,
+            },
+        });
     }
 
     public async findOne(id: string): Promise<PostEntity> {
@@ -34,10 +40,13 @@ export class PostsService {
     public async create(post: CreatePostDto): Promise<PostEntity> {
         this.logger.log('Creating new post.');
 
-        const id: string = crypto.randomUUID().toString();
+        const id: string = crypto.randomUUID();
+
+        const user = await this.usersService.getFirstFoundUser();
 
         const newPost: PostEntity = {
             ...post,
+            user,
             createdOn: new Date(Date.now()),
             likes: 0,
             shares: 0,
@@ -46,6 +55,8 @@ export class PostsService {
         };
 
         await this.postRepository.save(newPost);
+
+        this.logger.log(`Created post with id: ${id}.`);
 
         return newPost;
     }

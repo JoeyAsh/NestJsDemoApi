@@ -13,6 +13,7 @@ import {ApiResponse, ApiTags} from '@nestjs/swagger';
 import {PostEntity} from './entities/post.entity';
 import {CreatePostDto} from './dto/create-post.dto';
 import {UpdatePostDto} from './dto/update-post.dto';
+import {postMock} from './posts.mock';
 
 @ApiTags('posts')
 @Controller('posts')
@@ -54,5 +55,10 @@ export class PostsController {
         @Param('id', new ParseUUIDPipe()) id: string,
     ): Promise<void> {
         return this.postsService.delete(id);
+    }
+
+    @Post('/mock')
+    public async createMockPost(): Promise<PostEntity> {
+        return this.postsService.create(postMock);
     }
 }

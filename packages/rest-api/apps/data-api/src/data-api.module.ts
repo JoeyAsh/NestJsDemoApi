@@ -1,11 +1,9 @@
 import {Module} from '@nestjs/common';
-import {DataApiController} from './data-api.controller';
-import {DataApiService} from './data-api.service';
+import {PostsModule} from './posts/posts.module';
+import {CommentsModule} from './comments/comments.module';
+import {AppModule} from '../../../src/app.module';
 
 @Module({
-    imports: [],
-    controllers: [DataApiController],
-    providers: [DataApiService],
-    exports: [DataApiModule],
+    imports: [AppModule, PostsModule, CommentsModule],
 })
 export class DataApiModule {}

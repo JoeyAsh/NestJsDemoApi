@@ -1,8 +1,6 @@
 import {Module} from '@nestjs/common';
 import {ConfigModule} from '@nestjs/config';
 import {TypeOrmModule} from '@nestjs/typeorm';
-import {UserApiModule} from '../apps/user-api/src/user-api.module';
-import {DataApiModule} from '../apps/data-api/src/data-api.module';
 
 @Module({
     imports: [
@@ -19,8 +17,7 @@ import {DataApiModule} from '../apps/data-api/src/data-api.module';
             autoLoadEntities: true,
             synchronize: true,
         }),
-        DataApiModule,
-        UserApiModule,
     ],
+    exports: [AppModule],
 })
 export class AppModule {}
